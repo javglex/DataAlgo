@@ -5,7 +5,7 @@
 #ifndef QSORT_H
 #define QSORT_H
 
-QSort{
+class QSort{
 
 private:
 	int size;	//size of array
@@ -15,9 +15,9 @@ private:
 	void swap(int &, int &);
 
 public:
-	QSort();	//default constructor
-	QSort(int [] arr, n);
-	sort(int [] arr, int n);
+	QSort(){ }	//default constructor
+	QSort(int [], int );
+	void sort(int [], int );
 };
 
 #endif

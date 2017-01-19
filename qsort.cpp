@@ -5,21 +5,21 @@
 #include "qsort.h"
 
 
-void QSort::QSort(int [] arr, n){
+QSort::QSort(int arr[], int n){
 	size=n;
-	quickSort(arr,0,size);
+	quickSort(arr,0,size-1);
 }
 
 
-void QSort::sort(int [] arr, int n){ 
+void QSort::sort(int arr[], int n){ 
 	size=n;
-	quickSort(arr,0,size);
+	quickSort(arr,0,size-1);
 }
 
 
-void QSort::quickSort(int [] arr, int l, int r){
+void QSort::quickSort(int arr[], int l, int r){
 
-	if (l<h){	//if array size is greater than one element
+	if (l<r){	//if array size is greater than one element
 
 		int pi=partition(arr,l,r);
 		quickSort(arr,l,pi-1);
@@ -32,21 +32,27 @@ void QSort::quickSort(int [] arr, int l, int r){
 
 }
 
-int QSort::partition(int [] arr, int l, int r){
+int QSort::partition(int arr[], int low, int high){
 
-	int pivot=arr[r];
+	int pivot=arr[low];
 
-	if (l<=r){
+	do{
 
-		while(arr[pivot]<l)
-			l++;
-		while (arr[pivot]>r && (l<=r))
-			r--;
-		swap(arr[l],arr[r]);
+		while((high>low) && arr[high]>=pivot)
+			high--;
+		if (high==low) break;
+		arr[low++]=arr[high];
+		while ((low<high)&& arr[low]<=pivot)
+			low++;
+		if (low==high) break;
+		arr[high--]=arr[low];
+		
 
-	}
+	}while(true);
 
-	return l;
+	arr[low]=pivot;
+
+	return low;
 }
 
 void QSort::swap(int & a, int & b){
