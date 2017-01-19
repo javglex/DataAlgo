@@ -27,10 +27,10 @@ void runTest(int n_tests){
 
 		
 		int size=rand()%20;
-		int arr[size];
+		double arr[size];
 
 		for (int i=0; i<size; i++)		//populate array with random numbers
-			arr[i]=rand()%10000;
+			arr[i]=(rand()%10000)*1.1;
 
 		cout<<"unsorted: ";
 		for (int i=0; i<size; i++)		//display unsorted array
@@ -38,7 +38,7 @@ void runTest(int n_tests){
 		cout<<endl;
 
 
-		QSort newSort;
+		QSort<double> newSort;
 		newSort.sort(arr,size);		//call sorting function
 
 

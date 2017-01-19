@@ -4,20 +4,20 @@
 
 #include "qsort.h"
 
-
-QSort::QSort(int arr[], int n){
+template <class T>
+QSort<T>::QSort(T arr [], int n){
 	size=n;
 	quickSort(arr,0,size-1);
 }
 
-
-void QSort::sort(int arr[], int n){ 
+template <class T>
+void QSort<T>::sort(T arr[], int n){ 
 	size=n;
 	quickSort(arr,0,size-1);
 }
 
-
-void QSort::quickSort(int arr[], int l, int r){
+template <class T>
+void QSort<T>::quickSort(T arr[], int l, int r){
 
 	if (l<r){	//if array size is greater than one element
 
@@ -28,13 +28,12 @@ void QSort::quickSort(int arr[], int l, int r){
 
 	}
 
-
-
 }
 
-int QSort::partition(int arr[], int low, int high){
+template <class T>
+int QSort<T>::partition(T arr[], int low, int high){
 
-	int pivot=arr[low];
+	T pivot=arr[low];
 
 	do{
 
@@ -54,10 +53,10 @@ int QSort::partition(int arr[], int low, int high){
 
 	return low;
 }
+template <class T>
+void QSort<T>::swap(T & a, T & b){
 
-void QSort::swap(int & a, int & b){
-
-	int temp=a;
+	T temp=a;
 	a=b;
 	b=temp;
 
