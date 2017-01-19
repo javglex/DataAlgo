@@ -36,3 +36,10 @@ int partition(int [] arr, int l, int r){
 	return l;
 }
 
+void swap(int & a, int & b){
+
+	int temp=a;
+	a=b;
+	b=temp;
+
+}
