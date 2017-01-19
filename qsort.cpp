@@ -1,10 +1,23 @@
 //Javier Gonzalez
 //January 18, 2017
-//QuickSort algorithm implementation
+//QuickSort algorithm class implementation
+
+#include "qsort.h"
 
 
+void QSort::QSort(int [] arr, n){
+	size=n;
+	quickSort(arr,0,size);
+}
 
-void quickSort(int [] arr, int l, int r){
+
+void QSort::sort(int [] arr, int n){ 
+	size=n;
+	quickSort(arr,0,size);
+}
+
+
+void QSort::quickSort(int [] arr, int l, int r){
 
 	if (l<h){	//if array size is greater than one element
 
@@ -19,7 +32,7 @@ void quickSort(int [] arr, int l, int r){
 
 }
 
-int partition(int [] arr, int l, int r){
+int QSort::partition(int [] arr, int l, int r){
 
 	int pivot=arr[r];
 
@@ -36,7 +49,7 @@ int partition(int [] arr, int l, int r){
 	return l;
 }
 
-void swap(int & a, int & b){
+void QSort::swap(int & a, int & b){
 
 	int temp=a;
 	a=b;
