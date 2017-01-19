@@ -30,11 +30,11 @@ void runTest(int n_tests){
 		double arr[size];
 
 		for (int i=0; i<size; i++)		//populate array with random numbers
-			arr[i]=(rand()%10000)*1.1;
+			arr[i]=(rand()%100)*1.1;
 
 		cout<<"unsorted: ";
 		for (int i=0; i<size; i++)		//display unsorted array
-			cout<<arr[i]<<" ";
+			cout<<arr[i]<<", ";
 		cout<<endl;
 
 
@@ -44,7 +44,7 @@ void runTest(int n_tests){
 
 		cout<<"sorted: ";
 		for (int i=0; i<size; i++)		//display sorted array
-			cout<<arr[i]<<" ";
+			cout<<arr[i]<<", ";
 		cout<<endl;
 
 	}

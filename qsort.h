@@ -40,9 +40,9 @@ void QSort<T>::quickSort(T arr[], int l, int r){
 
 	if (l<r){	//if array size is greater than one element
 
-		int pi=partition(arr,l,r);
-		quickSort(arr,l,pi-1);
-		quickSort(arr,pi+1,r);
+		int pi=partition(arr,l,r);  //find partition index
+		quickSort(arr,l,pi-1);		//recursively sort left half of partition
+		quickSort(arr,pi+1,r);		//recursively sort right half of partition
 
 	}
 
@@ -51,19 +51,23 @@ void QSort<T>::quickSort(T arr[], int l, int r){
 template <class T>
 int QSort<T>::partition(T arr[], int low, int high){
 
-	T pivot=arr[low];
+	swap(arr[(low+high)/2],arr[high]); //swap with median of arr, attempt to remove O(n^2) time complexity
+	T pivot=arr[high]; //all values <= pivot will come before, and all values >= pivot will come after
 
 	do{
 
-		while((high>low) && arr[high]>=pivot)
-			high--;
-		if (high==low) break;
-		arr[low++]=arr[high];
+		//extend small region
 		while ((low<high)&& arr[low]<=pivot)
 			low++;
 		if (low==high) break;
 		arr[high--]=arr[low];
-		
+
+		//extend large region
+		while((high>low) && arr[high]>=pivot)
+			high--;
+		if (high==low) break;
+		arr[low++]=arr[high];
+
 
 	}while(true);
 
